@@ -8,12 +8,12 @@ RUN apt-get update && apt-get -y upgrade && apt-get install -y apache2 php5.6 ph
 
 RUN echo 'autodetect'|pecl install imagick
 RUN echo "extension=imagick.so" | sudo tee /etc/php/5.6/mods-available/imagick.ini
-RUN ln -s /etc/php/5.6/mods-available/imagick.ini /etc/php/5.6/apache2/conf.d/20-imagick.ini
-RUN ln -s /etc/php/5.6/mods-available/imagick.ini /etc/php/5.6/apache2/conf.d/20-imagick.ini
+RUN ln -sf /etc/php/5.6/mods-available/imagick.ini /etc/php/5.6/apache2/conf.d/20-imagick.ini
+RUN ln -sf /etc/php/5.6/mods-available/imagick.ini /etc/php/5.6/apache2/conf.d/20-imagick.ini
 
 RUN echo 'autodetect'|pecl install uploadprogress
 RUN echo "extension=uploadprogress.so" | sudo tee /etc/php/5.6/mods-available/uploadprogress.ini
-RUN ln -s /etc/php/5.6/mods-available/uploadprogress.ini /etc/php/5.6/cli/conf.d/20-uploadprogress.ini
+RUN ln -sf /etc/php/5.6/mods-available/uploadprogress.ini /etc/php/5.6/cli/conf.d/20-uploadprogress.ini
 
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
