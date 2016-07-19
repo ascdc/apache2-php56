@@ -17,10 +17,18 @@ RUN chmod +x /*.sh && \
 	echo 'autodetect'|pecl install imagick && \
 	echo "extension=imagick.so" | sudo tee /etc/php/5.6/mods-available/imagick.ini && \
 	ln -sf /etc/php/5.6/mods-available/imagick.ini /etc/php/5.6/apache2/conf.d/20-imagick.ini && \
-	ln -sf /etc/php/5.6/mods-available/imagick.ini /etc/php/5.6/apache2/conf.d/20-imagick.ini && \
 	echo 'autodetect'|pecl install uploadprogress && \
 	echo "extension=uploadprogress.so" | sudo tee /etc/php/5.6/mods-available/uploadprogress.ini && \
-	ln -sf /etc/php/5.6/mods-available/uploadprogress.ini /etc/php/5.6/apache2/conf.d/20-uploadprogress.ini
+	ln -sf /etc/php/5.6/mods-available/uploadprogress.ini /etc/php/5.6/apache2/conf.d/20-uploadprogress.ini && \
+	echo 'autodetect'|pecl install zip && \
+	echo "extension=zip.so" | sudo tee /etc/php/5.6/mods-available/zip.ini && \
+	ln -sf /etc/php/5.6/mods-available/zip.ini /etc/php/5.6/apache2/conf.d/20-zip.ini && \
+	echo 'autodetect'|pecl install jsonc && \
+	echo "extension=json.so" | sudo tee /etc/php/5.6/mods-available/json.ini && \
+	ln -sf /etc/php/5.6/mods-available/json.ini /etc/php/5.6/apache2/conf.d/20-json.ini && \
+	echo 'autodetect'|pecl install memcache && \
+	echo "extension=memcache.so" | sudo tee /etc/php/5.6/mods-available/memcache.ini && \
+	ln -sf /etc/php/5.6/mods-available/memcache.ini /etc/php/5.6/apache2/conf.d/20-memcache.ini
 
 EXPOSE 80
 WORKDIR /var/www/html
